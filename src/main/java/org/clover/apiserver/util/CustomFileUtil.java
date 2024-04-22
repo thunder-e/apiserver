@@ -72,8 +72,6 @@ public class CustomFileUtil {
                     Thumbnails.of(savePath.toFile()).size(200,200).toFile(thumbnailPath.toFile());
                 }
 
-
-
                 uploadNames.add(saveName);
             } catch (IOException e) {
                 throw new RuntimeException(e);
