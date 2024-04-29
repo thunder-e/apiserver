@@ -9,6 +9,7 @@ import org.clover.apiserver.service.ProductService;
 import org.clover.apiserver.util.CustomFileUtil;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -33,6 +34,7 @@ public class ProductController {
     }
 
 
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @GetMapping("/list")
     public PageResponseDTO<ProductDTO> list(PageRequestDTO pageRequestDTO) {
         return productService.getList(pageRequestDTO);
